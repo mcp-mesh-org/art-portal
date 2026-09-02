@@ -1,0 +1,11 @@
+{
+  "name": "art-portal",
+  "private": true,
+  "workspaces": [
+    "api",
+    "web"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces"
+  }
+}
