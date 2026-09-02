@@ -17,6 +17,8 @@ async function main() {
   await client.connect();
 
   try {
+    await client.query('SELECT pg_advisory_lock(1)');
+
     await client.query(`
       CREATE TABLE IF NOT EXISTS schema_migrations (
         filename TEXT PRIMARY KEY,
