@@ -8,7 +8,7 @@
   "scripts": {
     "build": "npm run build --workspaces",
     "migrate": "node scripts/migrate.js",
-    "test": "npm test --workspace=api"
+    "test": "npm test --workspaces --if-present"
   },
   "dependencies": {
     "pg": "^8.23.0"
