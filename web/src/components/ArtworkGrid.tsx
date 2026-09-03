@@ -3,7 +3,11 @@ import type { Artwork } from '../types';
 import { fetchArtworks } from '../api';
 import ArtworkCard from './ArtworkCard';
 
-export default function ArtworkGrid() {
+interface Props {
+  onAddToCart?: (artwork: Artwork) => void;
+}
+
+export default function ArtworkGrid({ onAddToCart }: Props) {
   const [artworks, setArtworks] = useState<Artwork[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +28,7 @@ export default function ArtworkGrid() {
   return (
     <div>
       {artworks.map((artwork) => (
-        <ArtworkCard key={artwork.id} artwork={artwork} />
+        <ArtworkCard key={artwork.id} artwork={artwork} onAddToCart={onAddToCart} />
       ))}
     </div>
   );
